@@ -1,0 +1,128 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KyudoApp.MAIU.Views.Training"
+             Title="Szczegóły Treningu">
+
+    <ContentPage.Resources>
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#0D1321" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="WidthRequest" Value="150" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="10,5" />
+        </Style>
+
+        <Style x:Key="SectionLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+
+        <Style x:Key="ContentLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="Margin" Value="0,2" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Sekcja karty informacyjnej -->
+            <Frame BorderColor="Transparent" Background="#c05746" CornerRadius="12" Padding="15" Margin="0, 5">
+                <Grid RowSpacing="10" ColumnSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Data -->
+                    <HorizontalStackLayout Grid.Row="0" Grid.Column="0" Spacing="10">
+                        <Label Text="Data:" Style="{StaticResource SectionLabelStyle}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <Label x:Name="DataLabel" Style="{StaticResource ContentLabelStyle}" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" />
+
+                    <!-- Miejsce -->
+                    <HorizontalStackLayout Grid.Row="1" Grid.Column="0" Spacing="10">
+                        <Label Text="Miejsce:" Style="{StaticResource SectionLabelStyle}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <Label x:Name="MiejsceLabel" Style="{StaticResource ContentLabelStyle}" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" />
+
+                    <!-- Czas Start -->
+                    <HorizontalStackLayout Grid.Row="2" Grid.Column="0" Spacing="10">
+                        <Label Text="Czas Start:" Style="{StaticResource SectionLabelStyle}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <Label x:Name="CzasStart" Style="{StaticResource ContentLabelStyle}" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" />
+
+                    <!-- Czas Koniec -->
+                    <HorizontalStackLayout Grid.Row="3" Grid.Column="0" Spacing="10">
+                        <Label Text="Czas Koniec:" Style="{StaticResource SectionLabelStyle}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <Label x:Name="CzasKoniec" Style="{StaticResource ContentLabelStyle}" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+
+            <!-- Reszta elementów -->
+            <Frame BorderColor="Transparent" CornerRadius="10" Padding="0" BackgroundColor="White" HeightRequest="450" WidthRequest="300">
+                <GraphicsView x:Name="HitOverlay" HeightRequest="450" WidthRequest="300">
+                    <GraphicsView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTargetTapped" />
+                    </GraphicsView.GestureRecognizers>
+                </GraphicsView>
+            </Frame>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Button 
+                    Text="Dodaj trafienia" 
+                    Style="{StaticResource PrimaryButtonStyle}" 
+                    Clicked="ResetHits" 
+                    BackgroundColor="#7c898b"/>
+
+                <Button 
+                    Text="Cofnij strzał" 
+                    Style="{StaticResource PrimaryButtonStyle}" 
+                    Clicked="RemoveShote"
+                    BackgroundColor="#7c898b"/>
+            </HorizontalStackLayout>
+
+            <Button 
+                Text="Przejdź do Statystyk" 
+                Style="{StaticResource PrimaryButtonStyle}" 
+                Clicked="GoToStatsPage" 
+                BackgroundColor="#7c898b"/>
+
+            <Button 
+                Text="Wróć" 
+                Style="{StaticResource PrimaryButtonStyle}" 
+                Clicked="GoBack" 
+                BackgroundColor="#7c898b"/>
+
+            <Button 
+                Text="Usuń Trening" 
+                Style="{StaticResource PrimaryButtonStyle}" 
+                Clicked="DeleteTraining"
+                BackgroundColor="Red" />
+
+
+            <Label 
+                x:Name="HitPointsLabel" 
+                FontSize="14" 
+                HorizontalOptions="Center" 
+                Margin="0,10" />
+
+            <Label Text="Notatki:" Style="{StaticResource SectionLabelStyle}" />
+            <Editor 
+                x:Name="NotesEditor" 
+                HeightRequest="150" 
+                Placeholder="Wpisz notatki tutaj..." 
+                VerticalOptions="StartAndExpand" 
+                TextChanged="NotesEditor_TextChanged" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

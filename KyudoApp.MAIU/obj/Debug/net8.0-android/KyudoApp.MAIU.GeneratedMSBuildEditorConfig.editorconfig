@@ -1,0 +1,77 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = KyudoApp.MAIU
+build_property.ProjectDir = C:\Users\Damian\source\repos\KyudoApp\KyudoApp.MAIU\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/Views/AddTraining.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.Views.AddTraining.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AddTraining.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AddTraining.xaml
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/Views/Calendar.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.Views.Calendar.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Calendar.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Calendar.xaml
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/Views/NoteDetailPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.Views.NoteDetailPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\NoteDetailPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\NoteDetailPage.xaml
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/Views/NotesList.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.Views.NotesList.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\NotesList.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\NotesList.xaml
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/Views/Stats.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.Views.Stats.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Stats.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Stats.xaml
+
+[C:/Users/Damian/source/repos/KyudoApp/KyudoApp.MAIU/Views/Training.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = KyudoApp.MAIU.Views.Training.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Training.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Training.xaml

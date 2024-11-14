@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KyudoApp.MAIU.Views.NoteDetailPage"
+             Title="Edytuj Notatkę">
+    <StackLayout Padding="10">
+        <Label Text="Edytuj notatkę poniżej:" FontSize="Medium" />
+        <Editor x:Name="NotesEditor" TextChanged="NotesEditor_TextChanged" AutoSize="TextChanges" HeightRequest="200" />
+    </StackLayout>
+</ContentPage>

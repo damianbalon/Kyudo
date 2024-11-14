@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:KyudoApp.MAIU.Views"
+             x:Class="KyudoApp.MAIU.Views.NotesList"
+             Title="Lista Notatek">
+    <StackLayout>
+        <!-- SearchBar for searching notes -->
+        <SearchBar Placeholder="Wyszukaj notatki..." 
+                   TextChanged="OnSearchTextChanged" 
+                   HorizontalOptions="FillAndExpand" />
+
+        <!-- CollectionView for displaying notes -->
+        <CollectionView ItemsSource="{Binding Notes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" HasShadow="True" BackgroundColor="#7c898b">
+                        <StackLayout>
+                            <Label Text="{Binding Tytul}" FontSize="Medium" FontAttributes="Bold" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:NotesList}}, Path=BindingContext.NoteSelectedCommand}" CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

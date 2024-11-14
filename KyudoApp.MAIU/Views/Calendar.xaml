@@ -1,0 +1,99 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             x:Class="KyudoApp.MAIU.Views.Calendar"
+             Title="Calendar">
+
+    <ContentPage.Resources>
+        <Style x:Key="PrimarySfButtonStyle" TargetType="buttons:SfButton">
+            <Setter Property="BackgroundColor" Value="#0D1321" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid>
+        <!-- Main content layout -->
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label 
+                x:Name="DateLabel"
+                FontSize="18"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+            />
+
+            <control:SfCalendar x:Name="CalendarMain" BackgroundColor="#ffeddf">
+                <control:SfCalendar.HeaderView>
+                    <control:CalendarHeaderView Background="#c05746">
+                        <control:CalendarHeaderView.TextStyle>
+                            <control:CalendarTextStyle TextColor="Black" FontSize="18" />
+                        </control:CalendarHeaderView.TextStyle>
+                    </control:CalendarHeaderView>
+                </control:SfCalendar.HeaderView>
+                <control:SfCalendar.MonthView>
+                    <control:CalendarMonthView FirstDayOfWeek="Monday" />
+                </control:SfCalendar.MonthView>
+            </control:SfCalendar>
+
+            <Label 
+                x:Name="Skond"
+                FontSize="18"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+        </VerticalStackLayout>
+
+        <!-- Bottom rectangle and buttons -->
+        <AbsoluteLayout VerticalOptions="End" HeightRequest="150">
+            <!-- Rectangle with rounded corners at the top -->
+            <BoxView BackgroundColor="#c05746"
+                     AbsoluteLayout.LayoutBounds="0,1,1,70"
+                     AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional" 
+                     CornerRadius="40,40,0,0"/>
+
+            <!-- Buttons on top of the rectangle -->
+            <HorizontalStackLayout AbsoluteLayout.LayoutBounds="0.5,0.5,AutoSize,AutoSize" 
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   Spacing="15">
+
+                <!-- Button "Notatki" on the left -->
+                <buttons:SfButton
+                    Text="Notatki"
+                    Style="{StaticResource PrimarySfButtonStyle}"
+                    Clicked="GoToNotesList"
+                    Background="#7c898b" 
+                    WidthRequest="80"
+                    HeightRequest="80"
+                    CornerRadius="40"
+                    Stroke="Black" 
+                    StrokeThickness="6"/>
+
+                <!-- Button "Trening" in the center (largest) -->
+                <buttons:SfButton
+                    Text="Trening"
+                    Style="{StaticResource PrimarySfButtonStyle}"
+                    Clicked="GoInDay"
+                    Background="#7c898b" 
+                    WidthRequest="100"
+                    HeightRequest="100"
+                    CornerRadius="50"
+                    Stroke="Black" 
+                    StrokeThickness="6"/>
+
+                <!-- Button "Statystyki" on the right -->
+                <buttons:SfButton
+                    Text="Statystyki"
+                    Style="{StaticResource PrimarySfButtonStyle}"
+                    Clicked="GoToStats"
+                    Background="#7c898b" 
+                    WidthRequest="80"
+                    HeightRequest="80"
+                    CornerRadius="40"
+                    Stroke="Black" 
+                    StrokeThickness="6"/>
+            </HorizontalStackLayout>
+        </AbsoluteLayout>
+    </Grid>
+</ContentPage>

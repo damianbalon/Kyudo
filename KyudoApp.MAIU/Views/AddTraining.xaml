@@ -1,0 +1,92 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             x:Class="KyudoApp.MAIU.Views.AddTraining"
+             Title="Dodaj Nowy Trening">
+
+    <ContentPage.Resources>
+        <Style x:Key="PrimarySfButtonStyle" TargetType="buttons:SfButton">
+            <Setter Property="BackgroundColor" Value="#0D1321" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid>
+        <!-- Main content layout -->
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label 
+                Text="Dodaj Nowy Trening" 
+                FontSize="24" 
+                HorizontalOptions="Center"
+            />
+
+            <Entry 
+                x:Name="LocationEntry" 
+                Placeholder="Miejsce treningu" 
+                HorizontalOptions="Center"
+                FontSize="16" 
+            />
+
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <picker:SfTimePicker 
+                    BackgroundColor="#ffeddf"
+                    x:Name="StartTimePicker"
+                    Format="H_mm"
+                    TextDisplayMode="FadeAndShrink"
+                    SelectedTime="18:00"
+                    WidthRequest="120">
+                    <picker:SfTimePicker.ColumnHeaderView>
+                        <picker:TimePickerColumnHeaderView Background="#c05746">
+                            <picker:TimePickerColumnHeaderView.TextStyle>
+                                <picker:PickerTextStyle FontSize="15" TextColor="Black" />
+                            </picker:TimePickerColumnHeaderView.TextStyle>
+                        </picker:TimePickerColumnHeaderView>
+                    </picker:SfTimePicker.ColumnHeaderView>
+                </picker:SfTimePicker>
+
+                <picker:SfTimePicker 
+                    BackgroundColor="#ffeddf"
+                    x:Name="EndTimePicker"
+                    Format="H_mm"
+                    TextDisplayMode="FadeAndShrink"
+                    SelectedTime="20:00"
+                    WidthRequest="120">
+                    <picker:SfTimePicker.ColumnHeaderView>
+                        <picker:TimePickerColumnHeaderView Background="#c05746">
+                            <picker:TimePickerColumnHeaderView.TextStyle>
+                                <picker:PickerTextStyle FontSize="15" TextColor="Black" />
+                            </picker:TimePickerColumnHeaderView.TextStyle>
+                        </picker:TimePickerColumnHeaderView>
+                    </picker:SfTimePicker.ColumnHeaderView>
+                </picker:SfTimePicker>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Bottom rectangle and single button -->
+        <AbsoluteLayout VerticalOptions="End" HeightRequest="150">
+            <!-- Rectangle with rounded top corners -->
+            <BoxView BackgroundColor="#c05746"
+                     AbsoluteLayout.LayoutBounds="0,1,1,70"
+                     AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
+                     CornerRadius="40,40,0,0"/>
+
+            <!-- Centered button on top of the rectangle, slightly lower to be cut off in half -->
+            <buttons:SfButton
+                Text="Zapisz Trening"
+                Style="{StaticResource PrimarySfButtonStyle}"
+                Clicked="OnSaveTrainingClicked"
+                Background="#7c898b"
+                WidthRequest="100"
+                HeightRequest="100"
+                CornerRadius="50"
+                Stroke="Black"
+                StrokeThickness="6"
+                AbsoluteLayout.LayoutBounds="0.5,0.5,AutoSize,AutoSize" 
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+        </AbsoluteLayout>
+    </Grid>
+</ContentPage>

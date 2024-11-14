@@ -1,0 +1,142 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:calendar="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             x:Class="KyudoApp.MAIU.Views.Stats"
+             Title="Statystyki"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
+
+    <ContentPage.Resources>
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#0D1321" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Start" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="10,5" />
+        </Style>
+
+        <Style x:Key="SectionFrameStyle" TargetType="Frame">
+            <Setter Property="BorderColor" Value="Gray" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="HasShadow" Value="True" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="10,5" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="15">
+
+            <calendar:SfCalendar
+                x:Name="CalendarStats"
+                IsVisible="{Binding IsCalendarVisible}"
+                SelectionMode="Range"
+                SelectionChanged="CalendarStats_SelectionChanged"
+                RangeSelectionDirection="Both"
+                BackgroundColor="#ffeddf">
+                <calendar:SfCalendar.HeaderView>
+                    <calendar:CalendarHeaderView Background="#c05746">
+                        <calendar:CalendarHeaderView.TextStyle>
+                            <calendar:CalendarTextStyle TextColor="Black" FontSize="18" />
+                        </calendar:CalendarHeaderView.TextStyle>
+                    </calendar:CalendarHeaderView>
+                </calendar:SfCalendar.HeaderView>
+                <calendar:SfCalendar.MonthView>
+                    <calendar:CalendarMonthView FirstDayOfWeek="Monday" />
+                </calendar:SfCalendar.MonthView>
+            </calendar:SfCalendar>
+
+            <Label 
+                Text="Heatmapa wyników" 
+                FontSize="20" 
+                HorizontalOptions="Center" 
+                />
+
+            <Frame 
+                Style="{StaticResource SectionFrameStyle}"
+                HeightRequest="450"
+                WidthRequest="300">
+                <GraphicsView 
+                    x:Name="HeatmapOverlay"
+                    HeightRequest="450" 
+                    WidthRequest="300" />
+            </Frame>
+
+            <Frame BorderColor="Transparent" Background="#c05746" CornerRadius="12" Padding="15" Margin="0, 5">
+                <Grid RowSpacing="2" ColumnSpacing="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Komórki pierwszego wiersza -->
+                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#333333" CornerRadius="0">
+                        <Label Text="Ogólnie" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#333333" CornerRadius="0">
+                        <Label Text="Trafione" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="2" BackgroundColor="#333333" CornerRadius="0">
+                        <Label Text="Pudło" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                    <!-- Komórki drugiego wiersza -->
+                    <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#333333" CornerRadius="0">
+                        <Label x:Name="Strzal" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#333333" CornerRadius="0">
+                        <Label x:Name="Trafione" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#333333" CornerRadius="0">
+                        <Label x:Name="Podlo" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+                </Grid>
+            </Frame>
+
+            <Grid HorizontalOptions="Center">
+                <chart:SfCartesianChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:CategoryAxis>
+                            <chart:CategoryAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle TextColor="White" />
+                            </chart:CategoryAxis.LabelStyle>
+                        </chart:CategoryAxis>
+                    </chart:SfCartesianChart.XAxes>
+
+                    <chart:SfCartesianChart.YAxes>
+                        <chart:NumericalAxis Maximum="100" Minimum="0">
+                            <chart:NumericalAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle TextColor="White" />
+                            </chart:NumericalAxis.LabelStyle>
+                        </chart:NumericalAxis>
+                    </chart:SfCartesianChart.YAxes>
+
+                    <chart:ColumnSeries 
+                        ItemsSource="{Binding ChartData}" 
+                        XBindingPath="Date"
+                        YBindingPath="HitPercentage"
+                        Label="Procent trafień">
+                    </chart:ColumnSeries>
+                </chart:SfCartesianChart>
+            </Grid>
+
+            <Button 
+                Text="Wróć do Treningu" 
+                Style="{StaticResource PrimaryButtonStyle}" 
+                Clicked="OnBackToTrainingClicked" 
+                BackgroundColor="#7c898b"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

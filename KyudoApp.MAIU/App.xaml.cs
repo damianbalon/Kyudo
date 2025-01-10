@@ -9,7 +9,7 @@ namespace KyudoApp.MAIU
         private readonly SqliConnection _conection;
         public App(SqliConnection conection)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzU3MDI0MUAzMjM3MmUzMDJlMzBGeTBvSUF4b0RteE1vNGgraXQwTVRTWDk0SGpQRWkrdk90dmVaaENseWRJPQ==\r\n\r\n");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense();
             InitializeComponent();
             CultureInfo.CurrentUICulture = CultureInfo.CreateSpecificCulture("pl-PL");
 
